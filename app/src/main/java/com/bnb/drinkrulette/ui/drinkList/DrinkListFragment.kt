@@ -63,7 +63,7 @@ class DrinkListFragment: Fragment(), CallbackItemClick {
             override fun onFailure(t: Throwable, res: Response<*>?) {
                 // Use the Builder class for convenient dialog construction
                 val builder = AlertDialog.Builder(requireActivity().applicationContext)
-                builder.setMessage(R.string.alert_error_title)git
+                builder.setMessage(R.string.alert_error_title)
                         .setNeutralButton(R.string.alert_error_button,
                                 DialogInterface.OnClickListener { dialog, id ->
                                     // User cancelled the dialog

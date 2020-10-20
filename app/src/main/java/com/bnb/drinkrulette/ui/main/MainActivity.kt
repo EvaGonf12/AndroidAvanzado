@@ -7,7 +7,6 @@ import com.bnb.drinkrulette.R
 import com.bnb.drinkrulette.base.BaseDrinkRoulette
 import com.bnb.drinkrulette.ui.drinkList.DrinkListFragment
 import com.bnb.drinkrulette.ui.favouriteList.FavouriteListFragment
-import com.bnb.drinkrulette.ui.randomDrink.RandomDrinkFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseDrinkRoulette.BaseActivity() {
@@ -21,11 +20,6 @@ class MainActivity : BaseDrinkRoulette.BaseActivity() {
             when (menuItem.itemId) {
                 R.id.action_drinks -> {
                     val fragment = DrinkListFragment.newInstance()
-                    openFragment(fragment)
-                    true
-                }
-                R.id.action_random_drink -> {
-                    val fragment = RandomDrinkFragment.newInstance()
                     openFragment(fragment)
                     true
                 }

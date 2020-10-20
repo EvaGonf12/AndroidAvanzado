@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/tabbar_menu"
-        app:backgroundTint="@color/black"
-        app:itemIconTint="@color/yellow"
-        app:itemTextColor="@color/yellow"/>
+        app:itemBackground="@color/black"
+        app:itemIconTint="@color/bottom_bar_color"
+        app:itemTextColor="@color/bottom_bar_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
