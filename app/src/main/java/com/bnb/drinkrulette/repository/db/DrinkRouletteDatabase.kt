@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.bnb.drinkrulette.repository.model.DrinkDetails
 import com.bnb.drinkrulette.repository.model.DrinkItem
 import com.bnb.drinkrulette.repository.model.DrinkListResponse
 
-@Database(entities = [DrinkItem::class], version = 1, exportSchema = false)
+@Database(entities = [DrinkItem::class, DrinkDetails::class], version = 1, exportSchema = false)
 abstract class DrinkRouletteRoomDatabase : RoomDatabase() {
 
     abstract fun drinkRouletteDao(): DrinkRouletteDao

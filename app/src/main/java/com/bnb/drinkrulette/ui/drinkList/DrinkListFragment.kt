@@ -3,11 +3,13 @@ package com.bnb.drinkrulette.ui.drinkList
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bnb.drinkrulette.R
@@ -76,23 +78,8 @@ class DrinkListFragment: Fragment(), CallbackItemClick {
     override fun onItemClick(drinkItem: DrinkItem) {
         // Se cambia el fragment en el activity
         // El fragment tiene que comunicar a la activity que cambie de fragment
-        /*       fragmentManager?.let { fragment ->
 
-                   Intent(fragment, DetailActivity::class.java).apply {
-
-                       arguments = Bundle().apply {
-                           putSerializable(OBJECT_APOD, apodResponse)
-                       }
-
-                       arguments?.let { args ->
-                           putExtras(args)
-                       }
-
-                       putExtra("EXTRA_APOD", LOCAL_APOD)
-                       putExtra("EXTRA_APOD_ID", apodResponse.id)
-                       fragment.startActivityForResult(this, REQUEST_CODE)
-                   }
-        }*/
+        fragmentManager?.beginTransaction().add(R.id)
     }
 
 
