@@ -20,7 +20,7 @@ import retrofit2.Response
 
 class DrinkListViewModel(private val context: Application) : ViewModel() {
 
-    fun gelListDrinks(cb: DrinkRouletteService.CallbackResponse<List<DrinkItem>>) {
+    fun getListDrinks(cb: DrinkRouletteService.CallbackResponse<List<DrinkItem>>) {
 
         DrinkRouletteService().drinkRouletteApi.getDrinks().enqueue(object : Callback<DrinkListResponse> {
 

@@ -1,7 +1,6 @@
 package com.bnb.drinkrulette.repository.network
 
 import com.bnb.drinkrulette.repository.model.DrinkDetailsResponse
-import com.bnb.drinkrulette.repository.model.DrinkItem
 import com.bnb.drinkrulette.repository.model.DrinkListResponse
 import retrofit2.Call
 import retrofit2.http.GET

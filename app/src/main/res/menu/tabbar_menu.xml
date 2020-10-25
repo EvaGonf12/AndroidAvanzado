@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Drinks" android:state_checked="true" android:id="@+id/action_drinks" android:icon="@drawable/icon_tabbar_cup"/>
-    <item android:title="Favs" android:id="@+id/action_fav_drinks" android:icon="@drawable/icon_tabbar_fav"/>
+    <item android:title="Favs" android:id="@+id/action_fav_drinks" android:icon="@drawable/icon_fav"/>
 </menu>

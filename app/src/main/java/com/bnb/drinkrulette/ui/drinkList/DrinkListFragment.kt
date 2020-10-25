@@ -1,25 +1,24 @@
 package com.bnb.drinkrulette.ui.drinkList
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bnb.drinkrulette.R
 import com.bnb.drinkrulette.repository.model.DrinkItem
-import com.bnb.drinkrulette.repository.model.DrinkListResponse
 import com.bnb.drinkrulette.repository.network.DrinkRouletteService
+import com.bnb.drinkrulette.ui.drinkDetails.DetailFragment
+import com.bnb.drinkrulette.utils.FragmentActions
 import com.bnb.drinkrulette.utils.CustomViewModelFactory
+import com.bnb.drinkrulette.utils.FragmentNavigation
 import kotlinx.android.synthetic.main.fragment_drink_list.*
-import kotlinx.android.synthetic.main.item_list.*
 import retrofit2.Response
+
 
 class DrinkListFragment: Fragment(), CallbackItemClick {
     companion object {
@@ -29,6 +28,7 @@ class DrinkListFragment: Fragment(), CallbackItemClick {
 
     private var drinkList: List<DrinkItem>? = null
     private var adapter: DrinkListAdapter? = null
+    private var callbackActivityNavigation: FragmentNavigation? = null
 
     private val viewModel: DrinkListViewModel by lazy {
         val factory = CustomViewModelFactory(requireActivity().application)
@@ -41,18 +41,22 @@ class DrinkListFragment: Fragment(), CallbackItemClick {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+        initValues()
         getDrinkList()
     }
 
-    private fun init() {
+    private fun initValues() {
         recyclerViewDrinkList.layoutManager = LinearLayoutManager(activity)
         recyclerViewDrinkList.isNestedScrollingEnabled = false
         recyclerViewDrinkList.setHasFixedSize(false)
     }
 
-    fun getDrinkList() {
-        viewModel.gelListDrinks(object : DrinkRouletteService.CallbackResponse<List<DrinkItem>> {
+    fun setFragNavListener(callback: FragmentNavigation) {
+        this.callbackActivityNavigation = callback
+    }
+
+    private fun getDrinkList() {
+        viewModel.getListDrinks(object : DrinkRouletteService.CallbackResponse<List<DrinkItem>> {
             override fun onResponse(response: List<DrinkItem>) {
                 drinkList = response
 
@@ -76,11 +80,9 @@ class DrinkListFragment: Fragment(), CallbackItemClick {
     }
 
     override fun onItemClick(drinkItem: DrinkItem) {
-        // Se cambia el fragment en el activity
-        // El fragment tiene que comunicar a la activity que cambie de fragment
-
-        fragmentManager?.beginTransaction().add(R.id)
+        val bundle = Bundle()
+        bundle.putString(DetailFragment.ID, drinkItem.idDrink)
+        callbackActivityNavigation?.navigateToFragment(DetailFragment.TAG, TAG, bundle)
     }
-
 
 }
