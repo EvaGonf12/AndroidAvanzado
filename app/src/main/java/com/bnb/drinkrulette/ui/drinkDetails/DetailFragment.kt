@@ -47,11 +47,6 @@ class DetailFragment: Fragment() {
         ViewModelProvider(this, factory).get(DetailViewModel::class.java)
     }
 
-    // Listener para la activity
-    fun setFragmentActionsListener(callback: FragmentActions) {
-        this.callbackActivityActions = callback
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_drink_details, container, false)
     }
